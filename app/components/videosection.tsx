@@ -7,7 +7,7 @@ import { VideoItem } from "../types";
 interface VidItemProps {
     videoObj: VideoItem;
     setIsReady: React.Dispatch<React.SetStateAction<boolean>>;
-    key: number;
+    index: number,
     setCurrIndx: React.Dispatch<React.SetStateAction<number>>;
     setClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -17,11 +17,11 @@ interface VidItemProps {
    - video thumbnail image
    - video topic short 
    - video duration (formatted to MM:SS) */
-const VidItem: React.FC<VidItemProps> = ({ videoObj, setIsReady, key, setCurrIndx, setClicked }) => {
+const VidItem: React.FC<VidItemProps> = ({ videoObj, setIsReady, index, setCurrIndx, setClicked }) => {
 
     const setFunction = () => {
-        console.log("setting index to:", key);
-        setCurrIndx(key);
+        console.log("setting index to:", index);
+        setCurrIndx(index);
         console.log("setting clicked to true");
         setClicked(true);
         console.log("setting ready to false");
@@ -72,6 +72,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ videos, setIsReady, setCurr
             videoObj={video}
             setIsReady={setIsReady}
             key={i}
+            index={i}
             setCurrIndx={setCurrIndx}
             setClicked={setClicked}
         />

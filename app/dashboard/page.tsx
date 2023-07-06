@@ -1,8 +1,5 @@
 "use client";
 
-import ReactPlayer from "react-player";
-import VideoPlayer from "../components/videoplayer";
-import VideoSection from "../components/videosection";
 import GridView from "../components/viewgrid";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -44,17 +41,15 @@ export default function DashboardPage() {
         }
     }, [token, data]);
     return (
-        <section className="max-w-7xl">
-            <div className="grid grid-cols-12 gap-3">
-                {token &&
-                    data &&
-                    <GridView
-                        name={data?.name}
-                        description={data?.description}
-                        persona={data?.persona}
-                        playlists={data?.playlists}
-                    />}
-            </div>
+        <section className="max-w-7xl overflow-hidden">
+            {token &&
+                data &&
+                <GridView
+                    name={data?.name}
+                    description={data?.description}
+                    persona={data?.persona}
+                    playlists={data?.playlists}
+                />}
         </section>
     )
 }

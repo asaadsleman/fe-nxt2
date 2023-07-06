@@ -25,80 +25,85 @@ const GridView: React.FC<UserData> = (data) => {
     }
 
     return (
-        <div>
-            <div className='mb-4 fit-content'>
-                <Card shadow='none' >
-                    <Suspense fallback={<div> loading... </div>}>
-                        <VideoPlayer
-                            videos={videos}
-                            isReady={isReady}
-                            setIsReady={setIsReady}
-                            currIndx={currIndx}
-                            setCurrIndx={setCurrIndx}
-                            clickedPlaylist={clicked}
-                            setClicked={setClicked}
-                        />
-                    </Suspense>
-                </Card>
-            </div>
-            <div>
-                <Card>
-                    <CardBody>
-                        <span>
-                            {videos[currIndx]["itemTopicLong"]}&nbsp;
-                        </span>
-                        <div>
-                            <Tooltip content={"Reset Video"}>
-                                <Button isIconOnly onPress={resetButton} color="warning">
-                                    <GithubIcon />
-                                </Button>
-                            </Tooltip>
-                            <Tooltip content={"Dislike Video"}>
-                                <Button color='danger'>
-                                    Dislike
-                                </Button>
-                            </Tooltip>
-                            <Tooltip content={"Like Video"}>
-                                <Button color="success">
-                                    Like
-                                </Button>
-                            </Tooltip>
-                        </div>
-                        <br />
-                        <div>
-                            <Button color="default">Summary</Button>
-                            <Button color="default">Practice</Button>
-                            <Button color="default">Discuss</Button>
-                        </div>
-                    </CardBody>
-                    <CardFooter>
+        <div className='grid grid-cols-12 content-center'>
+            <div className='col-span-8'>
+                <div className='flex mb-4'>
+                    <Card shadow='none' >
+                        <Suspense fallback={<div> Loading... </div>}>
+                            <VideoPlayer
+                                videos={videos}
+                                isReady={isReady}
+                                setIsReady={setIsReady}
+                                currIndx={currIndx}
+                                setCurrIndx={setCurrIndx}
+                                clickedPlaylist={clicked}
+                                setClicked={setClicked}
+                            />
+                        </Suspense>
+                    </Card>
+                </div>
+                <div className='flex mb-4'>
+                    <Card fullWidth>
+                        <CardBody>
+                            <span>
+                                {videos[currIndx]["itemTopicLong"]}
+                            </span>
+                            <div className='flex flex-end justify-end'>
+                                <Tooltip content={"Reset Video"}>
+                                    <Button isIconOnly onPress={resetButton} color="warning">
+                                        <GithubIcon />
+                                    </Button>
+                                </Tooltip>
+                                <Tooltip content={"Dislike Video"}>
+                                    <Button color='danger'>
+                                        Dislike
+                                    </Button>
+                                </Tooltip>
+                                <Tooltip content={"Like Video"}>
+                                    <Button color="success">
+                                        Like
+                                    </Button>
+                                </Tooltip>
+                            </div>
+                            <br />
+                            <div className='mt-2 flex flex-end justify-end'>
+                                <Button color="default">Summary</Button>
+                                <Button color="default">Practice</Button>
+                                <Button color="default">Discuss</Button>
+                            </div>
+                        </CardBody>
+                        <CardFooter>
 
+                        </CardFooter>
+                    </Card>
+                </div>
+            </div>
+            <div className='col-span-4'>
+                <Card>
+                    <CardHeader >
+                        <h3>
+                            {data?.name}
+                        </h3>
+                    </CardHeader>
+                    <h4>
+                        {data?.persona}
+                    </h4>
+                    <CardFooter>
+                        <h6>
+                            {data?.playlists[0].playlistName}
+                        </h6>
                     </CardFooter>
                 </Card>
+                <br />
+                <Card>
+                    <VideoSection
+                        videos={videos}
+                        setIsReady={setIsReady}
+                        setCurrIndx={setCurrIndx}
+                        setClicked={setClicked}
+                    />
+                </Card>
             </div>
-            <Card>
-                <CardHeader >
-                    <h3>
-                        {data?.name}
-                    </h3>
-                </CardHeader>
-                <h4>
-                    {data?.persona}
-                </h4>
-                <CardFooter>
-                    <h6>
-                        {data?.playlists[0].playlistName}
-                    </h6>
-                </CardFooter>
-            </Card>
-            <Card>
-                <VideoSection
-                    videos={videos}
-                    setIsReady={setIsReady}
-                    setCurrIndx={setCurrIndx}
-                    setClicked={setClicked}
-                />
-            </Card>
         </div>
     )
 }
