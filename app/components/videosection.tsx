@@ -1,4 +1,4 @@
-import { Image, Card, Button, Spacer, CardBody, Divider } from "@nextui-org/react";
+import { Image, Card, Button, Spacer, CardBody, Divider, Chip } from "@nextui-org/react";
 import React, { useCallback } from "react";
 import styles from '../page.module.css'
 import { VideoItem } from "../types";
@@ -7,7 +7,7 @@ import { VideoItem } from "../types";
 interface VidItemProps {
     videoObj: VideoItem;
     setIsReady: React.Dispatch<React.SetStateAction<boolean>>;
-    index: number;
+    key: number;
     setCurrIndx: React.Dispatch<React.SetStateAction<number>>;
     setClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -17,11 +17,11 @@ interface VidItemProps {
    - video thumbnail image
    - video topic short 
    - video duration (formatted to MM:SS) */
-const VidItem: React.FC<VidItemProps> = ({ videoObj, setIsReady, index, setCurrIndx, setClicked }) => {
+const VidItem: React.FC<VidItemProps> = ({ videoObj, setIsReady, key, setCurrIndx, setClicked }) => {
 
     const setFunction = () => {
-        console.log("setting index to:", index);
-        setCurrIndx(index);
+        console.log("setting index to:", key);
+        setCurrIndx(key);
         console.log("setting clicked to true");
         setClicked(true);
         console.log("setting ready to false");
@@ -43,7 +43,7 @@ const VidItem: React.FC<VidItemProps> = ({ videoObj, setIsReady, index, setCurrI
                 </div>
                 <br />
                 <div className="flex">
-                    <Button
+                    <Chip
                         variant="flat"
                         radius="lg"
                         color="secondary"
@@ -52,7 +52,7 @@ const VidItem: React.FC<VidItemProps> = ({ videoObj, setIsReady, index, setCurrI
                         {(videoObj.itemLengthSec >= 60) ? Math.round(videoObj.itemLengthSec / 60) : "00"}
                         :
                         {videoObj.itemLengthSec % 60}
-                    </Button>
+                    </Chip>
                 </div>
             </CardBody>
         </Card>
@@ -71,7 +71,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ videos, setIsReady, setCurr
         <VidItem
             videoObj={video}
             setIsReady={setIsReady}
-            index={i}
+            key={i}
             setCurrIndx={setCurrIndx}
             setClicked={setClicked}
         />

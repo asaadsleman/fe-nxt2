@@ -4,6 +4,7 @@ import { useState } from "react";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { Input } from "@nextui-org/input";
 import { useRouter } from "next/navigation";
+import { siteConfig } from "../config/site";
 
 // Define the state type for your form fields
 type FormState = {
@@ -22,7 +23,7 @@ export const Login = () => {
         event.preventDefault();
         // send request to server with the user's info and get a token back
         const JSONdata = JSON.stringify(formState);
-        await fetch("https://api.aisearchify.com/api/login", {
+        await fetch(`${siteConfig.links.BE_AUTH_API_ENDPOINT}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
