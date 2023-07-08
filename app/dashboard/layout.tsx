@@ -3,7 +3,7 @@ import { Navbar } from "../components/navbar";
 
 export default function LoginLayout({ children }: { children: React.ReactNode }) {
     return (
-        <section>
+        <section className="overflow-y-hidden">
             <Navbar />
             <br />
             {children}
