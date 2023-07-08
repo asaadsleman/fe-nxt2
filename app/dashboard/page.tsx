@@ -41,15 +41,15 @@ export default function DashboardPage() {
         }
     }, [token, data]);
     return (
-        <section className="max-w-7xl overflow-hidden">
+        <div className="justify-self-center mx-32 overflow-hidden flex justify-center">
             {token &&
                 data &&
                 <GridView
-                    name={data?.name}
-                    description={data?.description}
-                    persona={data?.persona}
-                    playlists={data?.playlists}
+                    name={data.name}
+                    description={data.description}
+                    persona={data.persona}
+                    playlists={data.playlists}
                 />}
-        </section>
+        </div>
     )
 }

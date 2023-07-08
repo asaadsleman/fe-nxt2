@@ -78,7 +78,7 @@ export const Navbar = () => {
                 <NavbarItem className="lg:flex">{searchInput}</NavbarItem>
             </NavbarContent>
 
-            <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+            <NavbarContent className=" basis-1 pl-4" justify="end">
                 <NavbarMenuToggle />
             </NavbarContent>
             <NavbarMenu>

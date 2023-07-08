@@ -25,8 +25,8 @@ const GridView: React.FC<UserData> = (data) => {
     }
 
     return (
-        <div className='grid grid-cols-12 content-center'>
-            <div className='col-span-8'>
+        <div className='grid grid-cols-11 gap-3 content-center'>
+            <div className='col-span-7'>
                 <div className='flex mb-4'>
                     <Card shadow='none' >
                         <Suspense fallback={<div> Loading... </div>}>
@@ -48,33 +48,30 @@ const GridView: React.FC<UserData> = (data) => {
                             <span>
                                 {videos[currIndx]["itemTopicLong"]}
                             </span>
-                            <div className='flex flex-end justify-end'>
+                            <div className='flex flex-end justify-end mb-1'>
                                 <Tooltip content={"Reset Video"}>
-                                    <Button isIconOnly onPress={resetButton} color="warning">
+                                    <Button className='ml-1' isIconOnly onPress={resetButton} color="warning">
                                         <GithubIcon />
                                     </Button>
                                 </Tooltip>
                                 <Tooltip content={"Dislike Video"}>
-                                    <Button color='danger'>
+                                    <Button className='ml-1' color='danger'>
                                         Dislike
                                     </Button>
                                 </Tooltip>
                                 <Tooltip content={"Like Video"}>
-                                    <Button color="success">
+                                    <Button className='ml-1' color="success">
                                         Like
                                     </Button>
                                 </Tooltip>
                             </div>
                             <br />
                             <div className='mt-2 flex flex-end justify-end'>
-                                <Button color="default">Summary</Button>
-                                <Button color="default">Practice</Button>
-                                <Button color="default">Discuss</Button>
+                                <Button className='ml-1' color="default">Summary</Button>
+                                <Button className='ml-1' color="default">Practice</Button>
+                                <Button className='ml-1' color="default">Discuss</Button>
                             </div>
                         </CardBody>
-                        <CardFooter>
-
-                        </CardFooter>
                     </Card>
                 </div>
             </div>

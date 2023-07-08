@@ -30,29 +30,31 @@ const VidItem: React.FC<VidItemProps> = ({ videoObj, setIsReady, index, setCurrI
     return (
         <Card isPressable onPress={setFunction}>
             <CardBody>
-                <div className="flex">
-                    <Image className="p-5 rounded-lg"
-                        src={videoObj.thumbnailUrl}
-                        width="80%"
-                        height="auto"
-                    />
-                </div>
-                <Divider orientation="vertical" />
-                <div className="flex">
-                    {videoObj.itemTopicShort}
-                </div>
-                <br />
-                <div className="flex">
-                    <Chip
-                        variant="flat"
-                        radius="lg"
-                        color="secondary"
-                        size="lg"
-                    >
-                        {(videoObj.itemLengthSec >= 60) ? Math.round(videoObj.itemLengthSec / 60) : "00"}
-                        :
-                        {videoObj.itemLengthSec % 60}
-                    </Chip>
+                <div className="flex flex-row">
+                    <div className="flex justify-center" style={{ width: "40%", marginBlock: 0 }}>
+                        <Image
+                            src={videoObj.thumbnailUrl}
+                            width="auto"
+                            height="auto"
+                        />
+                    </div>
+                    <div className="flex flex-col justify-start">
+                        <h5 className="mt-0">
+                            {videoObj.itemTopicShort}
+                        </h5>
+                        <br />
+                        <br />
+                        <Chip
+                            variant="flat"
+                            radius="lg"
+                            color="secondary"
+                            size="lg"
+                        >
+                            {(videoObj.itemLengthSec >= 60) ? Math.round(videoObj.itemLengthSec / 60) : "00"}
+                            :
+                            {videoObj.itemLengthSec % 60}
+                        </Chip>
+                    </div>
                 </div>
             </CardBody>
         </Card>
@@ -78,7 +80,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ videos, setIsReady, setCurr
         />
     ));
     return (
-        <div className="h-32 overflow-y-auto">
+        <div className="h-[31rem] overflow-y-auto">
             {list}
         </div>
     );

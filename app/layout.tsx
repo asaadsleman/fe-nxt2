@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='dark'>
-      <body>
+      <body className='overflow-hidden'>
         <Providers>
           {children}
         </Providers>
