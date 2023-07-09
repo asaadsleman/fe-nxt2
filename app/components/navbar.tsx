@@ -94,7 +94,7 @@ export const Navbar = () => {
                                             ? "danger"
                                             : "foreground"
                                 }
-                                href="#"
+                                href={siteConfig.navMenuItems[index].href}
                                 size="lg"
                             >
                                 {item.label}
