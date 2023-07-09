@@ -38,7 +38,7 @@ const VidItem: React.FC<VidItemProps> = ({ videoObj, setIsReady, index, setCurrI
                             height="auto"
                         />
                     </div>
-                    <div className="flex flex-col justify-start">
+                    <div className="flex flex-col justify-start ml-4">
                         <h5 className="mt-0">
                             {videoObj.itemTopicShort}
                         </h5>
