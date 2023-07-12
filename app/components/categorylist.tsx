@@ -10,7 +10,7 @@ export default function CategoriesList({ data }: { data: CategoryData }) {
                 <ul className="flex flex-row shrink-0">
                     {data && data.topics.map((topic) =>
                         <li key={topic.topicId} className="h-20 w-21">
-                            <Card isPressable className="flex mx-1 px-1 items-center justify-center h-20 min-w-full" shadow="none">
+                            <Card isPressable className="flex mx-1 px-1 items-center justify-center h-20" shadow="none">
                                 <h2><b>{topic.topicNameShort}</b></h2>
                             </Card>
                         </li>
