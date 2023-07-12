@@ -1,9 +1,10 @@
 "use client"
-import { Button, Divider } from "@nextui-org/react";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { siteConfig } from "../config/site";
 import CategoriesList from "../components/categorylist";
+import DropDownCatKey from "../components/categoriesdropdown";
 
 const ORGID = 2;
 
@@ -41,10 +42,18 @@ function CategoriesPage() {
                 <CategoriesList data={categories} />
             </div>}
             <br />
-            <div className="flex flex pl-10 pr-15 row w-[70rem]">
-                <label className="text-gray-500 text-xl">
-                    Fine-tune learning with hey elements:
-                </label>
+            <div className="flex flex-row justify-between pl-10 pr-15 py-1 row w-[70rem]">
+                <div>
+                    <label className="text-gray-500 text-xl pr-3">
+                        Fine-tune learning with hey elements:
+                    </label>
+                    <DropDownCatKey />
+                </div>
+                <div>
+                    <Button color="secondary">
+                        Generate
+                    </Button>
+                </div>
             </div>
             <Divider />
             <div>

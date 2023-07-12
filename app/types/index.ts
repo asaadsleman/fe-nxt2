@@ -39,3 +39,8 @@ export interface Category {
     topicName: string,
     topicNameShort: string
 }
+
+export interface DropDownItem {
+    key: string,
+    label: string,
+}
