@@ -1,25 +1,7 @@
+"use client"
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 
-
-const DropDownCatKey = () => {
-    const items = [
-        {
-            key: "new",
-            label: "New file",
-        },
-        {
-            key: "copy",
-            label: "Copy link",
-        },
-        {
-            key: "edit",
-            label: "Edit file",
-        },
-        {
-            key: "delete",
-            label: "Delete file",
-        }
-    ];
+function DropDownCatKey() {
 
     return (
         <Dropdown>
@@ -30,16 +12,13 @@ const DropDownCatKey = () => {
                     Open Menu
                 </Button>
             </DropdownTrigger>
-            <DropdownMenu aria-label="Dynamic Actions" items={items}>
-                {items && items.map(item => (
-                    <DropdownItem
-                        key={item.key}
-                        color={item.key === "delete" ? "danger" : "default"}
-                        className={item.key === "delete" ? "text-danger" : ""}
-                    >
-                        {item.label}
-                    </DropdownItem>
-                ))}
+            <DropdownMenu aria-label="Dynamic Actions">
+                <DropdownItem key={1}>
+                    key 1
+                </DropdownItem>
+                <DropdownItem key={2}>
+                    key 2
+                </DropdownItem>
             </DropdownMenu>
         </Dropdown>
     );

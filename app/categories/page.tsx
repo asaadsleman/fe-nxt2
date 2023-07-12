@@ -29,7 +29,6 @@ function CategoriesPage() {
                     return undefined;
                 }
                 const data = await response.json();
-                console.log("topicsData", data);
                 setCategories(data);
             }
         }
