@@ -19,7 +19,6 @@ export default function DashboardPage() {
                 return null;
             }
             // valid token
-            console.log("token 2 -", token);
             const response = await fetch(`${siteConfig.links.USER_DATA_BE_API_ENDPOINT}`, {
                 method: "GET",
                 headers: {
@@ -36,7 +35,6 @@ export default function DashboardPage() {
 
         if (typeof window !== undefined) {
             let localToken = localStorage.getItem("token");
-            console.log(localToken);
             setToken(localToken);
             getUserData(localToken);
 

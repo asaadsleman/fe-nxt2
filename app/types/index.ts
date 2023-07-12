@@ -29,3 +29,13 @@ export interface UserData {
     persona: string;
     playlists: Playlist[];
 };
+
+export interface CategoryData {
+    topics: Array<Category>
+}
+
+export interface Category {
+    topicId: string,
+    topicName: string,
+    topicNameShort: string
+}
